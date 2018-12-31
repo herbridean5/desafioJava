@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Bruno T Zielinski</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <!--  
+       
+         In Thymeleaf the equivalent of
+         JSP's ${pageContext.request.contextPath}/edit.html
+         would be @{/edit.html}
+          
+         -->
+      
+    <form action="/simulacao">
+    
+    <h1>Selecionar Usuario</h1>
+    
+		<select class="form-control" name="usuario">
+	    	<option th:each="usuario : ${usuarios}"
+               th:value="${usuario.id_usuario}"
+               th:utext="${usuario.email}" />
+		</select>
+	
+	<h1>Selecionar Monitoramento</h1>
+	
+	<select class="form-control" name="monit">
+	    	<option th:each="monit : ${monits}"
+               th:value="${monit.id_monit}"
+               th:utext="${monit.nome_empresa}" />
+	</select>
+		
+	<input type="submit"/>
+	
+	
+	</form>
+
+      <!--  
+      
+      <a th:href="@{/personList}">Person List</a>  
+      
+      -->
+       
+   </body>
+    
+</html>
